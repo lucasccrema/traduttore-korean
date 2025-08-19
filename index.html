@@ -14,7 +14,7 @@
     async function traduci() {
       const frase = document.getElementById("input").value;
 
-      const response = await fetch("/api/traduci", {
+      const response = await fetch("api/traduci", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ testo: frase })
