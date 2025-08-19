@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Traduttore Coreano → Italiano</title>
+</head>
+<body>
+  <h1>Traduci dal Coreano 🇰🇷 → 🇮🇹</h1>
+  <textarea id="input" rows="4" cols="50" placeholder="Scrivi qui in coreano..."></textarea><br>
+  <button onclick="traduci()">Traduci</button>
+  <p><strong>Traduzione:</strong> <span id="output"></span></p>
+
+  <script>
+    async function traduci() {
+      const frase = document.getElementById("input").value;
+
+      const response = await fetch("/api/traduci", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ testo: frase })
+      });
+
+      const data = await response.json();
+      document.getElementById("output").textContent = data.traduzione;
+    }
+  </script>
+</body>
+</html>
