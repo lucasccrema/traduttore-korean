@@ -16,7 +16,7 @@ export default async function handler(req, res) {
         "Authorization": `Bearer ${process.env.OPENAI_API_KEY}` // API key protetta
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini",
+        model: "gpt-3.5-turbo", //gpt-3.5-turbo oppure gpt-4o-mini
         messages: [
           { role: "system", content: "Sei un traduttore dal coreano all'italiano." },
           { role: "user", content: testo }
